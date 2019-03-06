@@ -1,6 +1,7 @@
 package com.hencoder.hencoderpracticedraw6.practice;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -13,6 +14,9 @@ import com.hencoder.hencoderpracticedraw6.R;
 public class Practice04Alpha extends RelativeLayout {
     Button animateBt;
     ImageView imageView;
+
+    int animateState = 0;
+
 
     public Practice04Alpha(Context context) {
         super(context);
@@ -37,6 +41,17 @@ public class Practice04Alpha extends RelativeLayout {
             @Override
             public void onClick(final View v) {
                 // TODO 在这里处理点击事件，通过 View.animate().alpha() 来改变 View 的透明度
+                switch (animateState){
+                    case 0:
+                        imageView.animate().alpha(0.1f);
+                        break;
+                    case 1:
+                        imageView.animate().alpha(1f);
+                        break;
+                }
+
+                animateState++;
+                if(animateState ==2) animateState =0;
             }
         });
     }

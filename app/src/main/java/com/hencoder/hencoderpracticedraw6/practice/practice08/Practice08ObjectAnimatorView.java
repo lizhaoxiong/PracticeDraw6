@@ -18,6 +18,15 @@ public class Practice08ObjectAnimatorView extends View {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     // TODO 为 progress 添加 getter 和 setter 方法（setter 方法记得加 invalidate()）
+    public void setProgress(float progress) {
+        this.progress = progress;
+        invalidate();
+    }
+
+    public float getProgress() {
+        return progress;
+    }
+
     float progress = 0;
 
     public Practice08ObjectAnimatorView(Context context) {
